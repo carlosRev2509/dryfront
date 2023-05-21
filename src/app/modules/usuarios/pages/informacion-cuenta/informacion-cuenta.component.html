@@ -1,0 +1,34 @@
+<app-header [title]="'Información de cuenta'"></app-header>
+<article class="dry-page-informacion-cuenta-container">
+  <section class="contenido-info-cuenta">
+    <section class="lado_izquierdo">
+      <section>
+        <img
+        [src]="imageData? imageData: '../../../assets/foto-por-defecto.jpg'"
+          alt="image-user">
+      </section>
+      <div class="nombre-imagen"></div>
+    </section>
+    <div class="lado_derecho">
+      <label class="text-information"><b>Nombre:</b> {{ userAccount.name }}</label>
+      <label class="text-information"><b>Apellido:</b> {{ userAccount.lastName }}</label>
+      <label class="text-information"><b>Correo electrónico:</b> {{ userAccount.email }}</label>
+      <label class="text-information"><b>Celular:</b> {{ userAccount.phone }}</label>
+      <label class="text-information"><b>Usuario:</b> {{ userAccount.username }}</label>
+      <section class="field-row text-information">
+        <label><b>Contraseña:</b> {{userAccount.password}}</label>
+        <span class="material-symbols-rounded icon-eye" (click)="togglePasswordVisibility()">{{textIconEye}}</span>
+      </section>
+    </div>
+  </section>
+</article>
+<ng-template data-backdrop="static" #contenido let-modal>
+  <div class="modal-header">
+    <h5>¿Est&aacute;s seguro que deseas cerrar sesi&oacute;n?</h5>
+  </div>
+  <div class="modal-body">
+    <button type="button" class="btn btn-success" (click)="logout()">SI</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close()">NO</button>
+  </div>
+  <div class="modal-footer"></div>
+</ng-template>
